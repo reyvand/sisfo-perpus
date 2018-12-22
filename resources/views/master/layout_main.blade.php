@@ -10,12 +10,10 @@
 	<script defer src="{{ asset('/assets/js/fontawesome_v5.3.1_all.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('/assets/js/jquery-3.3.1.min.js') }}"></script>
 	<script>
-		$("#loginForm").click(function() {
-		  $(".modal").addClass("is-active");  
-		});
-
-		$(".closeModal").click(function() {
-		   $(".modal").removeClass("is-active");
+		$(function() {
+		  $(".dropdown").hover(function() {
+		    $(this).toggleClass("is-active");
+		  });
 		});
 	</script>
 </head>
@@ -34,7 +32,40 @@
       		</div>
       	</div>
       	<div class="level-right">
-      		<p class="level-item"><a class="button is-rounded" href="{{ url('/login') }}">Login</a></p>
+      		<p class="level-item">
+      			@auth
+      			<div class="dropdown">
+						  <div class="dropdown-trigger">
+						    <button class="button is-rounded" aria-haspopup="true" aria-controls="dropdown-menu3">
+						      <span class="icon"><i class="fas fa-user"></i></span>
+						      <span>{{Auth::user()->user_name}}</span>
+						      <span class="icon is-small">
+						        <i class="fas fa-angle-down" aria-hidden="true"></i>
+						      </span>
+						    </button>
+						  </div>
+						  <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+						    <div class="dropdown-content">
+						      <a href="#" class="dropdown-item">
+						        Profil Saya
+						      </a>
+						      <a href="#" class="dropdown-item">
+						        Ubah Password
+						      </a>
+						      <a href="{{ url('/logout') }}" class="dropdown-item">
+						        Keluar
+						      </a>
+						    </div>
+						  </div>
+						</div>
+      			@endauth
+      			@guest
+      			<a class="button is-rounded" href="{{ url('/login') }}">
+      				<span class="icon"><i class="fas fa-sign-in-alt"></i></span>
+      				<span>Login</span>
+      			</a>
+      			@endguest
+      		</p>
       	</div>
       </nav>
    	</section>
