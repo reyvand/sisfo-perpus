@@ -21,9 +21,13 @@ Route::get('/peraturan-umum', function () {
 	return view('main.peraturan');
 });
 
-Route::get('/login', function () {
+Route::get('/signin', function () {
 	return view('main.login');
 });
-Route::post('/login', 'UserController@login');
+Route::post('/signin', 'UserController@signIn');
 
-Route::get('/logout', 'UserController@logout');
+Route::get('/signout', 'UserController@signOut');
+
+Route::get('/signup', function () {
+	return view('main.signup');
+});
