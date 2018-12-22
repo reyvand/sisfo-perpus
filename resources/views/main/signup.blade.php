@@ -1,8 +1,8 @@
 @extends('master.layout_main')
 @section('title','Login - Perpustakaan')
 @section('content')
-<p class="subtitle is-5">Login</p>
-	<form action="{{ url('/signin') }}" method="post">
+<p class="subtitle is-5">Daftar Anggota</p>
+	<form action="{{ url('/signup') }}" method="post">
 		{{ csrf_field() }}
 		<div class="columns">
 			<div class="column is-7">
@@ -12,6 +12,26 @@
 				</div>
 				@endif
 				<div class="field">
+					<label class="label">Nama Depan</label>
+				  <p class="control has-icons-left has-icons-right">
+				    <input class="input is-rounded" type="text" placeholder="Nama Depan" name="fname">
+				    <span class="icon is-small is-left">
+				      <i class="fas fa-user"></i>
+				    </span>
+				  </p>
+				</div>
+				<div class="field">
+					<label class="label">Nama Belakang</label>
+				  <p class="control has-icons-left has-icons-right">
+				    <input class="input is-rounded" type="text" placeholder="Nama Belakang" name="lname">
+				    <span class="icon is-small is-left">
+				      <i class="fas fa-user"></i>
+				    </span>
+				  </p>
+				</div>
+				<br>
+				<div class="field">
+					<label class="label">Username</label>
 				  <p class="control has-icons-left has-icons-right">
 				    <input class="input is-rounded" type="text" placeholder="Username" name="username">
 				    <span class="icon is-small is-left">
@@ -20,6 +40,7 @@
 				  </p>
 				</div>
 				<div class="field">
+					<label class="label">Password</label>
 				  <p class="control has-icons-left">
 				    <input class="input is-rounded" type="password" placeholder="Password" name="password">
 				    <span class="icon is-small is-left">
@@ -29,12 +50,7 @@
 				</div>
 				<div class="field">
 				  <p class="control">
-				    <button class="button is-primary is-rounded is-outlined" type="submit">Login</button>
-				  </p>
-				</div>
-				<div class="field">
-				  <p class="control">
-				    Daftar sebagai anggota <a href="{{ url('signup') }}">disini</a>
+				    <button class="button is-primary is-rounded is-outlined" type="submit">Daftar</button>
 				  </p>
 				</div>
 			</div>

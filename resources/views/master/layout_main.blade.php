@@ -52,7 +52,7 @@
 						      <a href="#" class="dropdown-item">
 						        Ubah Password
 						      </a>
-						      <a href="{{ url('/logout') }}" class="dropdown-item">
+						      <a href="{{ url('/signout') }}" class="dropdown-item">
 						        Keluar
 						      </a>
 						    </div>
@@ -60,7 +60,7 @@
 						</div>
       			@endauth
       			@guest
-      			<a class="button is-rounded" href="{{ url('/login') }}">
+      			<a class="button is-rounded" href="{{ url('/signin') }}">
       				<span class="icon"><i class="fas fa-sign-in-alt"></i></span>
       				<span>Login</span>
       			</a>
