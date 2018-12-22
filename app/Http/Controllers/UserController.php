@@ -9,8 +9,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function login(Request $request) {
-    	$db = new User;
+    public function signIn(Request $request) {
     	$login = array('user_name' => $request->username, 'password' => $request->password);
     	if(Auth::attempt($login)) {
     		return redirect('/');
@@ -20,12 +19,18 @@ class UserController extends Controller
     	}
     }
 
-    public function logout() {
+    public function signOut() {
     	if(Auth::check()) {
     		Auth::logout();
     		return redirect('/');
     	} else {
     		return redirect('/');
     	}
+    }
+
+    public function signUp(Request $request) {
+    	$db = new User;
+    	$last_id = sprintf("%'03d", $db::first()->id);
+    	
     }
 }

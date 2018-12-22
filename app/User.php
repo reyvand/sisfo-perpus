@@ -8,8 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
-
     protected $table = "tb_user";
+
     public function getAuthPassword() {
         return $this->user_password;
     }
