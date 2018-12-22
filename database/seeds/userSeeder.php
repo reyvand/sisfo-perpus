@@ -15,6 +15,8 @@ class userSeeder extends Seeder
         	'user_id' => 'ADM001',
         	'user_name' => 'kodok',
         	'user_password' => bcrypt('ngorek'),
+            'user_fname' => 'kodok',
+            'user_lname' => 'ngorek',
         	'user_role' => 'admin',
         ]);
     }
