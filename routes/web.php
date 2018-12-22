@@ -11,6 +11,17 @@
 |
 */
 
+/* general routes */
+
 Route::get('/', function () {
-    return view('welcome');
+	return view('main.front');
 });
+
+Route::get('/peraturan-umum', function () {
+	return view('main.peraturan');
+});
+
+Route::get('/login', function () {
+	return view('main.login');
+});
+Route::post('/login', 'UserController@login');
