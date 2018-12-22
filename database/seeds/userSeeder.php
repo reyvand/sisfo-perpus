@@ -14,7 +14,7 @@ class userSeeder extends Seeder
         DB::table('tb_user')->insert([
         	'user_id' => 'ADM001',
         	'user_name' => 'kodok',
-        	'user_password' => bcrypt('kodokngorek'),
+        	'user_password' => bcrypt('ngorek'),
         	'user_role' => 'admin',
         ]);
     }
