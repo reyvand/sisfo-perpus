@@ -6,6 +6,11 @@
 		{{ csrf_field() }}
 		<div class="columns">
 			<div class="column is-6">
+				@if(session()->has('error'))
+				<div class="field">
+					<div class="notification is-warning">{{ session()->get('error') }}</div>
+				</div>
+				@endif
 				<div class="field">
 				  <p class="control has-icons-left has-icons-right">
 				    <input class="input is-rounded" type="text" placeholder="Username" name="username">
