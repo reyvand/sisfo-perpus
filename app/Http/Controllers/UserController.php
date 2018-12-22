@@ -15,7 +15,17 @@ class UserController extends Controller
     	if(Auth::attempt($login)) {
     		return redirect('/');
     	} else {
-    		return redirect('/login');
+    		$error = 'Username atau password yang anda masukkan salah';
+    		return redirect('/login')->with('error',$error);
+    	}
+    }
+
+    public function logout() {
+    	if(Auth::check()) {
+    		Auth::logout();
+    		return redirect('/');
+    	} else {
+    		return redirect('/');
     	}
     }
 }
