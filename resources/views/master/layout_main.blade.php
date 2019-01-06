@@ -46,10 +46,10 @@
 						  </div>
 						  <div class="dropdown-menu" id="dropdown-menu3" role="menu">
 						    <div class="dropdown-content">
-						      <a href="#" class="dropdown-item">
+						      <a href="{{ url('/user/profile') }}" class="dropdown-item">
 						        Profil Saya
 						      </a>
-						      <a href="#" class="dropdown-item">
+						      <a href="{{ url('/user/changepass') }}" class="dropdown-item">
 						        Ubah Password
 						      </a>
 						      <a href="{{ url('/signout') }}" class="dropdown-item">
@@ -81,15 +81,21 @@
 					  </ul>
 					  <p class="menu-label"><span class="icon"><i class="fas fa fa-book"></i></span>Buku</p>
 					  <ul class="menu-list">
-					    <li><a>Daftar Buku</a></li>
-					  </ul>
-					  <p class="menu-label"><span class="icon"><i class="fas fa fa-portrait"></i></span>Pengarang</p>
-					  <ul class="menu-list">
-					    <li><a>Daftar Pengarang</a></li>
+					    <li><a href="/buku">Daftar Buku</a></li>
+					    @auth
+					    @if (Auth::user()->user_role == "admin")
+					    <li><a href="/buku/add">Tambah Buku</a></li>
+					    @endif
+					    @endauth
 					  </ul>
 					  <p class="menu-label"><span class="icon"><i class="fas fa fa-building"></i></span>Penerbit</p>
 					  <ul class="menu-list">
-					    <li><a>Daftar Penerbit</a></li>
+					    <li><a href="/penerbit">Daftar Penerbit</a></li>
+					    @auth
+					    @if (Auth::user()->user_role == "admin")
+					    <li><a href="/penerbit/add">Tambah Penerbit</a></li>
+					    @endif
+					    @endauth
 					  </ul>
 					</aside>
 				</div>

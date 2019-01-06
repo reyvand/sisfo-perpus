@@ -16,7 +16,7 @@ class UserController extends Controller
     		return redirect('/');
     	} else {
     		$error = 'Username atau password yang anda masukkan salah';
-    		return redirect('/login')->with('error',$error);
+    		return redirect('/signin')->with('error',$error);
     	}
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class BuatBuku extends Migration
+class BuatPenerbit extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class BuatBuku extends Migration
      */
     public function up()
     {
-        Schema::create('tb_buku', function (Blueprint $table) {
+        Schema::create('tb_penerbit', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('buku_kode',6)->unique();
-            $table->string('buku_judul',60);
-            $table->string('buku_pengarang',40);
-            $table->string('buku_kategori',20);
-            $table->integer('buku_stok');
-            $table->integer('penerbit_id');
+            $table->string('penerbit_nama',40);
+            $table->string('pernerbit_kota',30);
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class BuatBuku extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_buku');
+        Schema::dropIfExists('tb_penerbit');
     }
 }

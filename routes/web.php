@@ -29,13 +29,23 @@ Route::get('/signup', function () {
 });
 Route::post('/signup', 'UserController@signUp');
 
+Route::prefix('buku')->group( function() {
+	Route::get('/', 'BukuController@index');		
+});
+
+Route::prefix('penerbit')->group( function() {
+	Route::get('/', 'PenerbitController@index');
+});
+
 /* end of general routes */
 
 
 /* authenticated routes */
 
 Route::middleware('auth')->group( function() {
+
 	/* user group routes */
+	
 	Route::prefix('user')->group( function() {
 		Route::get('profile', 'UserController@showProfile');
 		Route::post('profile', 'UserController@updateProfile');
@@ -44,4 +54,18 @@ Route::middleware('auth')->group( function() {
 		});
 		Route::post('changepass', 'UserController@changePass');
 	});
+
+	/* end of user group routes */
+
+	
+	Route::middleware('noIDOR')->group( function() {
+
+		Route::prefix('penerbit')->group( function() {
+			Route::get('/add', function() {
+				return view('penerbit.add');
+			});
+		});
+	});
+
+
 });

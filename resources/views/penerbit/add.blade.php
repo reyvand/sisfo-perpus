@@ -1,5 +1,5 @@
 @extends('master.layout_main')
-@section('title','Daftar - Perpustakaan')
+@section('title','Tambah Penerbit - Perpustakaan')
 @section('content')
 <p class="subtitle is-5">Daftar Anggota</p>
 	<form action="{{ url('/signup') }}" method="post">
@@ -12,7 +12,7 @@
 				</div>
 				@elseif(session()->has('success'))
 				<div class="field">
-					<div class="notification is-success">{{ session()->get('success') }} <a href="{{ url('/signin') }}">disini</a></div>
+					<div class="notification is-success">{{ session()->get('success') }} <a href="{{ url('/login') }}">disini</a></div>
 				</div>
 				@endif
 				<div class="field">
