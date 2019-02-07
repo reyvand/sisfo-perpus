@@ -2,7 +2,7 @@
 @section('title','Daftar Penerbit - Perpustakaan')
 @section('content')
 <p class="subtitle is-5">Daftar Penerbit</p>
-<table class="table">
+<table class="table is-fullwidth is-striped is-hoverable">
   <thead>
     <tr>
       <th>ID Penerbit</th>
