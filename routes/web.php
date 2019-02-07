@@ -66,6 +66,13 @@ Route::middleware('auth')->group( function() {
 			});
 			Route::post('add', 'PenerbitController@add');
 		});
+
+		Route::prefix('buku')->group( function() {
+			Route::get('add', function() {
+				return view('Buku.add')->with('penerbit',App\Penerbit::all());
+			});
+			Route::post('add', 'BukuController@add');
+		});
 	});
 
 

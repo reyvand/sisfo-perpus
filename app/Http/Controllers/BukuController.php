@@ -8,7 +8,11 @@ use App\Buku;
 class BukuController extends Controller
 {
     public function index() {
-    	return view('buku.list');
+        $db = new Buku;
+        $buku = $db::all();
+    	return view('buku.list')->with('buku',$buku);
     }
-
+    public function add(Request $request) {
+        
+    }
 }
