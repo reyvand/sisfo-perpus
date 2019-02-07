@@ -61,9 +61,10 @@ Route::middleware('auth')->group( function() {
 	Route::middleware('noIDOR')->group( function() {
 
 		Route::prefix('penerbit')->group( function() {
-			Route::get('/add', function() {
+			Route::get('add', function() {
 				return view('penerbit.add');
 			});
+			Route::post('add', 'PenerbitController@add');
 		});
 	});
 

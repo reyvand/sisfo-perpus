@@ -16,7 +16,7 @@ class BuatPenerbit extends Migration
         Schema::create('tb_penerbit', function (Blueprint $table) {
             $table->increments('id');
             $table->string('penerbit_nama',40);
-            $table->string('pernerbit_kota',30);
+            $table->string('penerbit_kota',30);
             $table->timestamps();
         });
     }

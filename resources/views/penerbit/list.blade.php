@@ -11,7 +11,15 @@
     </tr>
   </thead>
   <tbody>
-  	
+  	@if(count($penerbit) < 1)
+      <td colspan="3"><center>Data kosong</center></td>
+    @else
+      @foreach($penerbit as $p)
+        <td>{{$p->id}}</td>
+        <td>{{$p->penerbit_nama}}</td>
+        <td>{{$p->penerbit_kota}}</td>
+      @endforeach
+    @endif
   </tbody>
 </table>
 @endsection
